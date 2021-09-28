@@ -9,8 +9,10 @@ namespace P5Conversion
             int number = 5;
             string numberString = Convert.ToString(number);
             Console.WriteLine(numberString);
-            numberString = "56.3";
-            Console.WriteLine(Convert.ToInt32(numberString));
+            
+            numberString = "56";
+            number = Convert.ToInt32(numberString);
+            Console.WriteLine(number);
         }
     }
 }
