@@ -12,22 +12,26 @@ namespace Nim
             Console.WriteLine("The game begins with placing 24 matches in a pile.");
             Console.WriteLine("Players take turns to draw matches");
             Console.WriteLine("Each player may draw 1,2 or 3 matches (not more or less).");
-            Console.WriteLine("The Player who has to take last match loses.");
+            Console.WriteLine("The Player who has to take last match wins!");
             
             
             int matches = 24;
-            string visualMatches = "||||||||||||||||||||||||";
+            
             
             while (matches > 0)
             {
-                Console.WriteLine(visualMatches + "  " + matches);
-                Console.WriteLine("How many matches do you like to draw?");
+                for (int i = 0; i <= matches; i++)
+                {
+                    Console.Write("|");
+                }
+                Console.WriteLine( "  " + matches);
+                Console.WriteLine("How many matches would do you like to draw?");
                 int playerPick = Convert.ToInt32(Console.ReadLine());
                 
 
                 if (playerPick > 3 | playerPick < 1)
                 { 
-                    Console.WriteLine("You can pick 1, 2 or 3 matches! try again!");
+                    Console.WriteLine("You can pick 1, 2 or 3 matches!(Input 1, 2 or 3) try again!");
                 }
                 else
                 {
@@ -39,7 +43,7 @@ namespace Nim
                 }
             }
 
-            Console.WriteLine("AI win! Better luck next time :)");
+            Console.WriteLine("AI win! Better luck next time! Probably not :))))) ");
             Console.ReadLine();
         }
     }
