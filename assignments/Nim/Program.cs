@@ -27,7 +27,9 @@ N::::::N       N:::::::N     I::::::::I     M::::::M               M::::::M     
 N::::::N        N::::::N     I::::::::I     M::::::M               M::::::M                    GGG::::::GGG:::G A:::::A                 A:::::A M::::::M               M::::::ME::::::::::::::::::::E
 NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM                       GGGGGG   GGGGAAAAAAA                   AAAAAAAMMMMMMMM               MMMMMMMMEEEEEEEEEEEEEEEEEEEEEE
                                                                                                                                                                                                      
-                                                                                                                                                                                                                                                                                                                                                                                            ");
+            
+                              ");
+            // Printing the rules and instructions for the player.
             Console.WriteLine(@"RULES: 
             1-The game begins with placing 24 matches in a pile.
             2-Players take turns to draw matches.
@@ -35,21 +37,25 @@ NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM     
             4-The Player who has to take the last match will lose!
               ");
             
+            // Defining the total number of matches.
             int matches = 24;
-            
+            // We start a while loop and break it whenever we have a winner!
             while (matches > 0)
             {
                 for (int i = 0; i < matches; i++)
                 {
+                    // Printing out the visual presentation of matches with a for loop. 
                     Console.Write("|");
                 }
                 Console.WriteLine( "  " + matches);
                 Console.WriteLine("How many matches would you like to draw?");
                 
+                // Player input (Number of matches at each round) + Checking the input errors 
                 int playerPick;
                 string playerPickString = Console.ReadLine();
                 bool errorCheck = int.TryParse(playerPickString, out playerPick);
-
+                
+                // If errorCheck is true we can control the validity of number entry.
                 if (errorCheck)
                 {
                     if (playerPick > 3 | playerPick < 1)
@@ -59,7 +65,7 @@ NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM     
                     else
                     {
                         matches = matches - playerPick;
-                        if (matches <= 0)
+                        if (matches <= 0) //Player takes the last match and lose the game.
                         {
                             Console.WriteLine(@"                                                                                                                                                                                                                                     
  __    __                              __                                 __     
@@ -71,8 +77,13 @@ NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM     
       \/_/ \/___/   \/___/                \/___/  \/___/  \/___/  \/____/    \/_/
                                                                      
                                                                       ");
+                            // Breaking the loop after clear result.
                             break;
                         }
+                        // Setting up the AI. [(matches - 3) - 4(x)]>>> It means matches=24 (24-3)=21 -4x {21, 17, 13, 9, 5} are places to keep in order to win. is the winning formula.
+                        // If AI starts the match it is always the winner. Unbeatable AI.
+                        // By giving the player the chance to start we basically give them the chance to win! If we want the AI to be always the winner we simply let the AI start with the formula.
+                        // If we want a very easy and dumb AI we can only assign the aiPick as random and ignore the formula.
                         int aiPick;
                         if (matches == 2)
                         {
@@ -93,13 +104,14 @@ NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM     
                         }
                         else
                         {
+                            //Random value for {21,17,13,9,5} since the winning spots are taken and the outcome is the same regardless of our choice. 
                             Random random = new Random();
                             aiPick = random.Next(1, 4);
                         }
                         Console.WriteLine("AI picks: " + aiPick );
                         matches = matches - aiPick;
 
-                        if (matches <= 0)
+                        if (matches <= 0) //AI takes the last match and player wins the game.
                         {
                             Console.WriteLine(@" 
 
@@ -120,6 +132,7 @@ NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM     
                 }
                 else
                 {
+                    // In case the player enters a none integer input.
                     Console.WriteLine("Invalid input! Type 1,2 or 3.");
                 }
                 
