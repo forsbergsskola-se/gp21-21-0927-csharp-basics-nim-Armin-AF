@@ -61,27 +61,7 @@ namespace Nim
                     }
                     else
                     {
-                        int aiPick;
-                        if (matches == 2)
-                        {
-                            aiPick = 1;
-                        }
-
-                        else if (matches == 3)
-                        {
-                            aiPick = 2;
-                        }
-                        else if (matches == 4)
-                        {
-                            aiPick = 3;
-                        }
-                        else
-                        {
-                            Random random = new Random();
-                            aiPick = random.Next(1, 4);
-                        }
                         matches = matches - playerPick;
-                        
                         if (matches <= 0)
                         {
                             Console.WriteLine(@"                                                                                                                                                                                                                                     
@@ -96,8 +76,32 @@ namespace Nim
                                                                       ");
                             break;
                         }
+                        int aiPick;
+                        if (matches == 2)
+                        {
+                            aiPick = 1;
+                        }
+
+                        else if (matches == 3 || matches == 7 || matches == 11 || matches == 15 || matches == 19 || matches == 23)
+                        {
+                            aiPick = 2;
+                        }
+                        else if (matches == 4 || matches == 8 || matches == 12 || matches == 16 || matches == 20 )
+                        {
+                            aiPick = 3;
+                        }
+                        else if (matches == 6 || matches == 10 || matches == 14 || matches == 18 || matches == 22)
+                        {
+                            aiPick = 1;
+                        }
+                        else
+                        {
+                            Random random = new Random();
+                            aiPick = random.Next(1, 4);
+                        }
                         Console.WriteLine("AI picks: " + aiPick );
                         matches = matches - aiPick;
+
                         if (matches <= 0)
                         {
                             Console.WriteLine(@" 
