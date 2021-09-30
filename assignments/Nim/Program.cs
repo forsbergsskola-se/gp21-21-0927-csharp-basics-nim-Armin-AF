@@ -31,18 +31,18 @@ namespace Nim
         \::/    /                \::/    /                \::/    /                        \::/____/                \::/    /                \::/    /                \::/    /        
          \/____/                  \/____/                  \/____/                                                   \/____/                  \/____/                  \/____/         
                                                                                                                                                                                        ");
-            Console.WriteLine("RULES: ");
-            Console.WriteLine("The game begins with placing 24 matches in a pile.");
-            Console.WriteLine("Players take turns to draw matches");
-            Console.WriteLine("Each player may draw 1,2 or 3 matches (not more or less).");
-            Console.WriteLine("The Player who has to take the last match will lose!");
-            Console.WriteLine("  ");
+            Console.WriteLine(@"RULES: 
+            1-The game begins with placing 24 matches in a pile.
+            2-Players take turns to draw matches.
+            3-Each player may draw 1,2 or 3 matches (not more or less).
+            4-The Player who has to take the last match will lose!
+              ");
             
             int matches = 24;
             
             while (matches > 0)
             {
-                for (int i = 0; i <= matches; i++)
+                for (int i = 0; i < matches; i++)
                 {
                     Console.Write("|");
                 }
@@ -65,13 +65,13 @@ namespace Nim
                         if (matches <= 0)
                         {
                             Console.WriteLine(@"                                                                                                                                                                                                                                     
- _     _  _____  _     _      _       _____    _    _______ 
-| |   | |/ ___ \| |   | |    | |     / ___ \  | |  (_______)
-| |___| | |   | | |   | |    | |    | |   | |  \ \  _____   
- \_____/| |   | | |   | |    | |    | |   | |   \ \|  ___)  
-   ___  | |___| | |___| |    | |____| |___| |____) ) |_____ 
-  (___)  \_____/ \______|    |_______)_____(______/|_______)
-                                                            
+ __    __                              __                                 __     
+/\ \  /\ \                            /\ \                               /\ \    
+\ `\`\\/'/  ___    __  __             \ \ \        ___     ____     __   \ \ \   
+ `\ `\ /'  / __`\ /\ \/\ \             \ \ \  __  / __`\  /',__\  /'__`\  \ \ \  
+   `\ \ \ /\ \L\ \\ \ \_\ \             \ \ \L\ \/\ \L\ \/\__, `\/\  __/   \ \_\ 
+     \ \_\\ \____/ \ \____/              \ \____/\ \____/\/\____/\ \____\   \/\_\
+      \/_/ \/___/   \/___/                \/___/  \/___/  \/___/  \/____/    \/_/
                                                                      
                                                                       ");
                             break;
@@ -105,12 +105,16 @@ namespace Nim
                         if (matches <= 0)
                         {
                             Console.WriteLine(@" 
- _     _  _____  _     _      _  _  _ _____ ______  
-| |   | |/ ___ \| |   | |    | || || (_____)  ___ \ 
-| |___| | |   | | |   | |    | || || |  _  | |   | |
- \_____/| |   | | |   | |    | ||_|| | | | | |   | |
-   ___  | |___| | |___| |    | |___| |_| |_| |   | |
-  (___)  \_____/ \______|     \______(_____)_|   |_|
+
+                                                                                 
+ __    __                              __      __                     __     
+/\ \  /\ \                            /\ \  __/\ \    __             /\ \    
+\ `\`\\/'/  ___    __  __             \ \ \/\ \ \ \  /\_\     ___    \ \ \   
+ `\ `\ /'  / __`\ /\ \/\ \             \ \ \ \ \ \ \ \/\ \  /' _ `\   \ \ \  
+   `\ \ \ /\ \L\ \\ \ \_\ \             \ \ \_/ \_\ \ \ \ \ /\ \/\ \   \ \_\ 
+     \ \_\\ \____/ \ \____/              \ `\___x___/  \ \_\\ \_\ \_\   \/\_\
+      \/_/ \/___/   \/___/                '\/__//__/    \/_/ \/_/\/_/    \/_/                                                                                 
+
                                                     ");
                             break;
                         } 
@@ -124,7 +128,11 @@ namespace Nim
                 
 
             }
-            
+
+            Console.WriteLine(@"
+                                           
+                                            " );
+            Console.WriteLine("Thank You for playing!");
             
             Console.ReadLine();
         }
