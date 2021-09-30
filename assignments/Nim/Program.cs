@@ -35,7 +35,7 @@ namespace Nim
             Console.WriteLine("The game begins with placing 24 matches in a pile.");
             Console.WriteLine("Players take turns to draw matches");
             Console.WriteLine("Each player may draw 1,2 or 3 matches (not more or less).");
-            Console.WriteLine("The Player who has to take last match wins!");
+            Console.WriteLine("The Player who has to take the last match will lose!");
             Console.WriteLine("  ");
             
             int matches = 24;
@@ -61,9 +61,38 @@ namespace Nim
                     }
                     else
                     {
+                        Random random = new Random();
+                        int aiPick = random.Next(1, 4);
                         matches = matches - playerPick;
-                        Console.WriteLine("AI picks: " + (4-playerPick) + "!");
-                        matches = matches - (4 - playerPick);
+                        if (matches <= 0)
+                        {
+                            Console.WriteLine(@"                                                                                                                                                                                                                                     
+ _     _  _____  _     _      _       _____    _    _______ 
+| |   | |/ ___ \| |   | |    | |     / ___ \  | |  (_______)
+| |___| | |   | | |   | |    | |    | |   | |  \ \  _____   
+ \_____/| |   | | |   | |    | |    | |   | |   \ \|  ___)  
+   ___  | |___| | |___| |    | |____| |___| |____) ) |_____ 
+  (___)  \_____/ \______|    |_______)_____(______/|_______)
+                                                            
+                                                                     
+                                                                      ");
+                            break;
+                        }
+                        Console.WriteLine("AI picks: " + aiPick );
+                        matches = matches - aiPick;
+                        if (matches <= 0)
+                        {
+                            Console.WriteLine(@" 
+ _     _  _____  _     _      _  _  _ _____ ______  
+| |   | |/ ___ \| |   | |    | || || (_____)  ___ \ 
+| |___| | |   | | |   | |    | || || |  _  | |   | |
+ \_____/| |   | | |   | |    | ||_|| | | | | |   | |
+   ___  | |___| | |___| |    | |___| |_| |_| |   | |
+  (___)  \_____/ \______|     \______(_____)_|   |_|
+                                                    ");
+                            break;
+                        } 
+                        
                     }
                 }
                 else
@@ -73,18 +102,9 @@ namespace Nim
                 
 
             }
+            
 
-            Console.WriteLine(@"                                                                                                                                                                                                                                     
- __    __  _____   __  __         __       _____   ____    ____      
-/\ \  /\ \/\  __`\/\ \/\ \       /\ \     /\  __`\/\  _`\ /\  _`\    
-\ `\`\\/'/\ \ \/\ \ \ \ \ \      \ \ \    \ \ \/\ \ \,\L\_\ \ \L\_\  
- `\ `\ /'  \ \ \ \ \ \ \ \ \      \ \ \  __\ \ \ \ \/_\__ \\ \  _\L  
-   `\ \ \   \ \ \_\ \ \ \_\ \      \ \ \L\ \\ \ \_\ \/\ \L\ \ \ \L\ \
-     \ \_\   \ \_____\ \_____\      \ \____/ \ \_____\ `\____\ \____/
-      \/_/    \/_____/\/_____/       \/___/   \/_____/\/_____/\/___/ 
-                                                                     
-                                                                      ");
-            Console.WriteLine("Better luck next time! Probably not :))))) ");
+           
             Console.ReadLine();
         }
     }
