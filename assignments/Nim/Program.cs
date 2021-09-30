@@ -61,9 +61,27 @@ namespace Nim
                     }
                     else
                     {
-                        Random random = new Random();
-                        int aiPick = random.Next(1, 4);
+                        int aiPick;
+                        if (matches == 2)
+                        {
+                            aiPick = 1;
+                        }
+
+                        else if (matches == 3)
+                        {
+                            aiPick = 2;
+                        }
+                        else if (matches == 4)
+                        {
+                            aiPick = 3;
+                        }
+                        else
+                        {
+                            Random random = new Random();
+                            aiPick = random.Next(1, 4);
+                        }
                         matches = matches - playerPick;
+                        
                         if (matches <= 0)
                         {
                             Console.WriteLine(@"                                                                                                                                                                                                                                     
@@ -103,8 +121,7 @@ namespace Nim
 
             }
             
-
-           
+            
             Console.ReadLine();
         }
     }
