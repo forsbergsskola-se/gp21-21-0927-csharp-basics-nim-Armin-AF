@@ -7,7 +7,8 @@ namespace Nim
     {
         static void Main(string[] args)
         {
-            
+            Console.ForegroundColor = ConsoleColor.Yellow;  
+
             Console.WriteLine(@"          
                                                                                                                                                                                                      
 NNNNNNNN        NNNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM                       GGGGGGGGGGGGG               AAA               MMMMMMMM               MMMMMMMMEEEEEEEEEEEEEEEEEEEEEE
