@@ -30,6 +30,7 @@ NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM     
                                                                                                                                                                                                      
             
                               ");
+            // TODO: Great use of multi-line comments! :)
             // Printing the rules and instructions for the player.
             Console.WriteLine(@"RULES: 
             1-The game begins with placing 24 matches in a pile.
@@ -54,11 +55,11 @@ NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM     
                 // Player input (Number of matches at each round) + Checking the input errors 
                 int playerPick;
                 string playerPickString = Console.ReadLine();
-                bool errorCheck = int.TryParse(playerPickString, out playerPick);
                 
                 // If errorCheck is true we can control the validity of number entry.
-                if (errorCheck)
+                if (int.TryParse(playerPickString, out playerPick)) // TODO: I would put TryX-Methods directly into if-statements. It might not be as clear to a beginner, but it's quite clear to anyone with experience :)
                 {
+                    // TODO: Nice way of doing error checks!
                     if (playerPick > 3 | playerPick < 1)
                     { 
                         Console.WriteLine("You can pick 1, 2 or 3 matches!(Input 1, 2 or 3) try again!");
@@ -66,6 +67,7 @@ NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM     
                     else
                     {
                         matches = matches - playerPick;
+                        // TODO: All of these if-elses are pretty deeply nested, but it's as good as it gets without the use of Methods, so all fine :)
                         if (matches <= 0) //Player takes the last match and lose the game.
                         {
                             Console.WriteLine(@"                                                                                                                                                                                                                                     
@@ -90,7 +92,7 @@ NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM     
                         {
                             aiPick = 1;
                         }
-
+                        // TODO: I feel like there should be a solution using MODULO (%) here... :)
                         else if (matches == 3 || matches == 7 || matches == 11 || matches == 15 || matches == 19 || matches == 23)
                         {
                             aiPick = 2;
@@ -106,6 +108,7 @@ NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM     
                         else
                         {
                             //Random value for {21,17,13,9,5} since the winning spots are taken and the outcome is the same regardless of our choice. 
+                            // TODO: Good idea! Can at least try to confuse the player :D
                             Random random = new Random();
                             aiPick = random.Next(1, 4);
                         }
