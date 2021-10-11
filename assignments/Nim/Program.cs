@@ -152,3 +152,74 @@ NNNNNNNN         NNNNNNN     IIIIIIIIII     MMMMMMMM               MMMMMMMM     
         }
     }
 }
+
+// Marc's solution
+/*using System;
+
+class Program {
+    static void Main() {
+        Random random = new Random();
+        int matches = 24;
+        int i;
+
+        Console.WriteLine("Match has started.");
+        
+        while (matches > 0) {
+            
+            // ======= AI PHASE ===============
+            
+            // Print matches to the console
+            i = 0;
+            while (i < matches) {
+                Console.Write('|');
+                i++;
+            }
+            Console.WriteLine($" ({matches})");
+            
+            // AI Draws
+            int aiMatches = 1; // cheap ai
+            aiMatches = random.Next(1, 4); // "fun" ai
+            aiMatches = (matches-1) % 4; // impossible ai
+            
+            
+            // We limit the number of matches to the amount available.
+            aiMatches = Math.Min(aiMatches, matches);
+            Console.WriteLine($"The ai draws {aiMatches} match.");
+            matches -= aiMatches;
+
+            // Check AI Lose
+            if (matches == 0) {
+                Console.WriteLine("You win!");
+            }
+            
+            
+            // ======= PLAYER PHASE ===============
+            // Print matches to the Console
+            i = 0;
+            while (i < matches) {
+                Console.Write('|');
+                i++;
+            }
+            Console.WriteLine($" ({matches})");
+            
+            // Player Draws
+            Console.WriteLine("How many matches do you want to draw? (1-3)");
+            string playerNumberInput = Console.ReadLine();
+            int playerNumber = Convert.ToInt32(playerNumberInput);
+            // We limit the number of matches to the amount that the rules allow.
+            playerNumber = Math.Clamp(playerNumber, 1, 3);
+            // We limit the number of matches to the amount available.
+            playerNumber = Math.Min(playerNumber, matches);
+            matches -= playerNumber;
+
+            // Check for Player Lose
+            if (matches == 0) {
+                Console.WriteLine("You lose!");
+                break;
+            }
+        }
+
+        Console.WriteLine("Match has ended.");
+    }
+}
+*/

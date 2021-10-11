@@ -50,6 +50,15 @@ namespace P12Random
                 else
                 {
                     Console.WriteLine("Crit!");
+                    
+                   /* // ternary operator's time to shine:
+                    Console.WriteLine(random.NextDouble() < critChance ? "Crit" : "No Crit");
+                    // same code without the operator:
+                    if (random.NextDouble() < critChance) {
+                        Console.WriteLine("Crit");
+                    } else {
+                        Console.WriteLine("No Crit");
+                    }*/
                 }
             }
 
